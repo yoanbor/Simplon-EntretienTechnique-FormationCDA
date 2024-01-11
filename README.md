@@ -1,56 +1,9 @@
 # Briefs-kekes-voyages
 Conception de la modélisation UML d'un système simplifié de réservation de vols pour l'agence de voyage Kékés Voyages.
 
-
-## Contexte du projet
-Kékés Voyages souhaite proposer la possibilité de réserver en ligne des billets d'avion à leurs clients.
-
-Notre mission est de concevoir à l'aide du standard UML la modélisation de la plateforme.
-
-La plateforme devra permettre que :
-
-* Un vol est ouvert à la réservation et refermé sur ordre de la compagnie.
-* Un vol peut être annulé par la compagnie
-* Un client peut réserver un ou plusieurs vols, pour des passagers différents.
-* Une réservation concerne un seul vol et un seul passager.
-* Une réservation peut être annulée ou confirmée.
-* Un vol a un aéroport de départ et un aéroport d’arrivée.
-* Un vol a un jour et une heure de départ, et un jour et une heure d’arrivée.
-* Un vol peut comporter des escales dans des aéroports.
-* Une escale a une heure d’arrivée et une heure de départ.
-* Chaque aéroport dessert une ou plusieurs villes.
-* Des compagnies aériennes proposent différents vols.
-
-En tant que Concepteur Développeur D'Applications,
-
-1. **Analyse des besoins du client :**
-- Rencontre avec le client pour comprendre ses exigences spécifiques en matière de gestion d'information.
-- Identification des acteurs du système, des flux d'information et des fonctionnalités requises.
-2. **Recensement des règles de gestion :**
-- Énumération des règles de gestion qui régissent le système, comme la validation des données, les autorisations d'accès, etc.
-3. **Création du diagramme de cas d'utilisation :**
-- Identification des cas d'utilisation principaux du système, tels que "Créer un utilisateur", "Gérer les données clients", etc.
-- Définition des relations entre les acteurs et les cas d'utilisation.
-4. **Élaboration du diagramme de classes :**
-- Identification des classes principales du système, telles que "Utilisateur", "Donnée", "Processus", etc.
-- Définition des attributs et des méthodes pour chaque classe.
-- Modélisation des associations entre les classes.
-5. **Définition des règles de gestion dans le diagramme de classes :**
-- Intégration des règles de gestion dans le diagramme de classes, par exemple, les contraintes d'intégrité des données.
-6. **Création du diagramme de séquence :**
-- Modélisation des interactions entre les différents objets du système lors de scénarios spécifiques tels que la création d'un utilisateur ou la mise à jour des données.
-7. **Raffinement du modèle avec les règles de gestion :**
-- Intégration des règles de gestion spécifiques dans le diagramme de séquence pour garantir la cohérence du système.
-8. **Validation du modèle avec le client :**
-- Présentation du modèle UML au client pour validation.
-- Réajustement du modèle en fonction des retours du client.
-9. **Documentation du modèle :**
-- Rédaction d'une documentation détaillée décrivant chaque élément du modèle UML, y compris les règles de gestion intégrées.
-
-
 ## Projet
 
-## 1. **Analyse des besoins du client :**
+### Analyse des besoins du client :
 
 ### Acteurs :
 
@@ -74,7 +27,7 @@ En tant que Concepteur Développeur D'Applications,
 - Gestion des passagers et de leurs informations
 - Gestion des compagnies aériennes
 
-## **2. Recensement des règles de gestion :**
+### Recensement des règles de gestion :
 
 - Kékés Voyages peut intégrer une compagnie sur sa plateforme
 - Un utilisateur peut créer un compte
@@ -93,3 +46,53 @@ En tant que Concepteur Développeur D'Applications,
     - La compagnie aérienne doit avoir ouvert un vol à la réservation pour :
         - La compagnie aérienne peut refermer un vol à la réservation
         - La compagnie aérienne peut annuler un vol à la réservation
+
+
+### Définition des règles de gestion dans le diagramme de classes :
+
+Dans le cadre de la définition des règles de gestion dans le diagramme de classes, nous allons intégrer des contraintes et des règles spécifiques dans certaines classes du modèle. Les règles de gestion doivent garantir l'intégrité et la cohérence des données du système. 
+
+- **Règles de gestion liées aux classes  :**
+    - Chaque classe a un id qui lui est propre
+
+- **Règles de gestion liées à la classe `Utilisateur` :**
+    
+    Un Utilisateur est un client
+    
+    **Contraintes**
+    
+    Un client peut réserver SEULEMENT si une compagnie aérienne a proposé un vol.
+    
+    Un client peut confirmer son vol MAIS avant le départ du vol Si il n’a pas annuler son vol 
+    
+    Un client peut annuler son vol MAIS avant le départ du vol Si il n’a pas confirmer son vol 
+    
+    ---
+    
+    **Obligations**
+    
+    Un client DOIT confirmer son vol Si il souhaite réellement le prendre SI il ne l’a pas annulé
+    
+- **Règles de gestion liées à la classe `Passager` :**
+    - Un passager n’existe seulement si un utilisateur lui a réserver un vol
+
+- **Règles de gestion liées à la classe `Reservation` :**
+    - Une réservation concerne SEULEMENT un seul vol pour un seul passager.
+    - Une réservation ne peut être faite que si le vol est ouvert à la réservation.
+
+- **Règles de gestion liées à la classe `Vol` :**
+    - Un vol ne peut pas avoir une date de départ ultérieure à la date d'arrivée.
+    - Un vol a un aéroport de départ et un aéroport d’arrivée.
+    - Un vol a un jour et une heure de départ, et un jour et une heure d’arrivée.
+    - Un vol peut comporter des escales dans des aéroports.
+
+- **Règles de gestion liées à la classe `CompagnieAerienne` :**
+    - 
+
+- **Règles de gestion liées à la classe `Escale` :**
+    - L'heure de départ d'une escale doit être antérieure à l'heure d'arrivée.
+    - Une escale a une heure d’arrivée et une heure de départ.
+    - Contrainte sur les escales : Les escales d'un vol doivent avoir une heure de départ antérieure à l'heure d'arrivée.
+
+- **Règles de gestion liées à la classe `Aéroport` :**
+    - Chaque aéroport dessert une ou plusieurs villes.
