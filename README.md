@@ -1,8 +1,8 @@
-# Brief - Plateforme de vente de vehicule
+# **Brief - Plateforme de vente de vehicule**
 
 Concevoir et développer un site de vente de véhicules en utilisant les diagrammes UML et les Design Pattern.
 
-# **Contexte du projet**
+# Contexte du projet
 
 Votre client souhaite un site où les utilisateurs peuvent commander un véhicule afin qu'il parte en production dans les usines correspondantes.
 
@@ -17,7 +17,7 @@ L'utilisateur pourra donc :
 
 En tant que Concepteur Développeur d'Application, vous devez concevoir et développer une application en utilisant les Design Pattern adaptés pour une bonne conception.
 
-## **Livrables**
+## Livrables
 
 Dans le dépôt GitHub au minimum :
 
@@ -26,16 +26,16 @@ Dans le dépôt GitHub au minimum :
 
 Une utilisation des Use Case serait un plus
 
-## **Critères de performance**
+## Critères de performance
 
 Un Readme qui explique le contexte du projet
 Une explication du choix des Design Pattern utilisés
 
-## Livrés
+## **Livrés**
 
 - Diagrammes ULM :
 
-  - Diagramme de cas d'utilisations
+  - Diagramme de cas d'utilisation
   - Diagramme de classes
 
 - Merise :
